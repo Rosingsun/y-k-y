@@ -10,7 +10,7 @@ import Intro from "./views/Intro";
 import Login from "./views/Login";
 
 
-export default function BasicExample() {
+export default function route() {
   return (
     <Router>
       <div>
