@@ -4,6 +4,11 @@
 
 ### 打包 -- yarn build /npm run build
 
+## 改动内容
+    1、 请求地址--在src目录下直接访问分类包名称--如 @src|@actions|@base 
+
+## 项目介绍
+对于项目稍加详细的介绍、上手更加容易，标出相应知识点。想了解的可以去看看。
 ### 项目配置
     1、 路由 react-route-dom
     2、 UI库 antd
@@ -11,4 +16,4 @@
     4、 访问接口 axios 
 
 ### 文件介绍
-1、 配置文件--config--需要再弄
+    1、config 和 scripts 文件夹是配置文件的，平时无需去动 -- 可学 -- webpack
