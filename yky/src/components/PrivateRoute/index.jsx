@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import routesConfig from "../../route";
-export default function PageConfig() {
+function PageConfig() {
   return (
-    <Router>
+    // <Router>
+    <div>
       <ul>
         <li>
           <Link to="/views/HomePage">Tacoss</Link>
@@ -29,6 +30,8 @@ export default function PageConfig() {
         }
         )}
       </Switch>
-    </Router>
+    </div>
+    // </Router>
   );
 }
+export default PageConfig;

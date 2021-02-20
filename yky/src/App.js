@@ -2,13 +2,17 @@
 import './App.css';
 import { Button } from 'antd';
 import BasicExample from "./route";
-import PageConfig  from "../src/components/PageRoute/index.jsx";
+import {PageConfig} from "./components/index.jsx";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <BasicExample/>
-        {/* <PageConfig /> */}
+        <Router>
+          {/* <BasicExample /> */}
+          <PageConfig />
+        </Router>
       </header>
     </div>
   );
