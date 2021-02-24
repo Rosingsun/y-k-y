@@ -9,3 +9,7 @@ export const HTTP_STATUS = {
     OPERATER_ERROR: 500,//操作失败
     NO_ENOUGH_AUTHORITY: 605,//权限不足
 }
+//到时候再看两种导出类型不同之处
+// module.exports={
+
+// }

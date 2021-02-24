@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import routesConfig from "../../route";
+import routesConfig from "@src/route";
 function PageConfig() {
   return (
     // <Router>
     <div>
       <ul>
         <li>
-          <Link to="/views/HomePage">Tacoss</Link>
+          <Link to="/HomePage">Home</Link>
         </li>
         <li>
-          <Link to="/views/Login">Sandwichess</Link>
+          <Link to="/Intro">Login</Link>
         </li>
       </ul>
       <Switch>
