@@ -1,26 +1,31 @@
-import HomePage from "@views/HomePage";
-import Intro from "@views/Intro";
-import Login from "@views/Login";
+// import Home from "@views/Home";
+// import Intro from "@views/Intro";
+// import Login from "@views/Login";
+import * as page from "@views/index.js"
 //顶部引入页面
 /*
 * @exprot routesConfig 导出页面
 */
 const routesConfig = [
   {
-    path: "/HomePage",
-    component: HomePage
+    path: "/Login",//登录注册
+    component: page.Login
+  },
+  {
+    path: "/Home",
+    component: page.Home
   },
   {
     path: "/Intro",
-    component: Intro,
+    component: page.Intro,
     routes: [
       {
         path: "/Intro/login",
-        component: Login
+        component: page.Login
       },
       {
         path: "/Intro/login",
-        component: Login
+        component: page.Login
       }
     ]
   }

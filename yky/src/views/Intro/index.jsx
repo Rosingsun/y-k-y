@@ -5,7 +5,7 @@ export default class Intro extends Component {
   render() {
     return (
       <div className={s.body}>
-        this is Intro
+        <a>你好 Intro</a>
       </div>
     )
   }
