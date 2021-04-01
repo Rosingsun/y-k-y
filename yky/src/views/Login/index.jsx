@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import s from "./style.module.scss";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import * as user from "../../actions/user";
 export default class Login extends Component {
   constructor(props) {
     super(props)
@@ -11,7 +12,11 @@ export default class Login extends Component {
   }
 
   onFinish = (values) => {
-      
+   let data={};
+   user.getUserInfo(values).then((res)=>{
+      data=res;
+   });
+    console.log("res23123",data);
   };
   render() {
     return (
