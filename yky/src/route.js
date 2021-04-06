@@ -18,16 +18,6 @@ const routesConfig = [
   {
     path: "/Intro",
     component: page.Intro,
-    routes: [
-      {
-        path: "/Intro/login",
-        component: page.Login
-      },
-      {
-        path: "/Intro/login",
-        component: page.Login
-      }
-    ]
   }
 ];
 export default routesConfig;

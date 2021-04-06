@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import s from "./style.module.scss";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { createHashHistory } from 'history'; // hash路由
 import * as user from "../../actions/user";
+const history = createHashHistory();
+
 export default class Login extends Component {
   constructor(props) {
     super(props)
@@ -10,13 +13,15 @@ export default class Login extends Component {
 
     }
   }
-
   onFinish = (values) => {
-   let data={};
    user.getUserInfo(values).then((res)=>{
-      data=res;
+      if(res.data.state=="登录成功"){
+        // history.push('/Intro');
+        this.props.history.push("/Intro")
+      }else{
+        message.warning(res.data.state);
+      }
    });
-    console.log("res23123",data);
   };
   render() {
     return (

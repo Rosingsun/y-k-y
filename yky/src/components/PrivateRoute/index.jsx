@@ -6,19 +6,7 @@ import { Login } from "@views/index";
 class PageConfig extends Component {
   render() {
     return (
-      <div>
-        {/* <ul> */}
-        {/* <li>
-            <Link to="/Home">Home</Link>
-          </li>
-          <li>
-            <Link to="/Intro">Intro</Link>
-          </li> */}
-        {/* <li>
-            <Link to="/Login">Login</Link>
-          </li> */}
-        {/* </ul> */}
-        <Login />
+      <div >
         <Switch>
           {
             routesConfig.map((route, index) => {
@@ -26,7 +14,6 @@ class PageConfig extends Component {
                 <Route
                   path={route.path}
                   render={props => (
-                    // pass the sub-routes down to keep nesting
                     <route.component {...props} routes={route.routes} />
                   )}
                 />

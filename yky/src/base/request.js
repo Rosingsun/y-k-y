@@ -44,7 +44,6 @@ const getApi = (url, params, type) => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': '*' }
     })
         .then((res) => {
-            console.log('weqwewqe',res)
             return res;
         }).catch((err) => {
             return err;
