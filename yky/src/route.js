@@ -1,5 +1,5 @@
 // import Home from "@views/Home";
-// import Intro from "@views/Intro";
+// import Data from "@views/Data";
 // import Login from "@views/Login";
 import * as page from "@views/index.js"
 //顶部引入页面
@@ -9,15 +9,18 @@ import * as page from "@views/index.js"
 const routesConfig = [
   {
     path: "/Login",//登录注册
-    component: page.Login
+    component: page.Login,
+    title:'登录注册'
   },
   {
     path: "/Home",
-    component: page.Home
+    component: page.Home,
+    title:'主页',
   },
   {
-    path: "/Intro",
-    component: page.Intro,
+    path: "/Data",
+    component: page.Data,
+    title:"数据页",
   }
 ];
 export default routesConfig;

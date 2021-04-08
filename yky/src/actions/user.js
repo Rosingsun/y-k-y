@@ -1,4 +1,3 @@
-import axios from 'axios';
 import getApi from "../base/request";
 import ApiConstants from '../constants/apiConstants';
 

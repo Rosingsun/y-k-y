@@ -1,7 +1,5 @@
 import axios from 'axios';
-import qs from 'qs';
 import { message } from 'antd';
-import * as state from "./statusCode.js";
 //开发环境与产品环境的url
 // const devBaseURL = 'localhost:9981';
 // const proBaseURL = 'localhost:9981';
@@ -32,23 +30,30 @@ instance.interceptors.response.use(res => {
 
 /**
  * 
- * @param {String} type 
- * @param {String} url 
+ * @param {String} type 传输的类型，一般就 post 和 get就好了 但是要大写
+ * @param {String} url 连接后台的路由
  * @param {Object} data 传递给接口的对象数据
  */
-const getApi = (url, params, type) => {
+const getApi = (url, params, method) => {
   const data =  axios({
         url: url,
         params: params,
-        method: type,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': '*' }
+        method: method,
+        headers: { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*',
+             'Access-Control-Allow-Methods': '*'
+        }
     })
         .then((res) => {
             return res;
         }).catch((err) => {
+            message.error('接口发生错误');
             return err;
         });
         return data
 }
-// export default instance;
+// const spacialGetApi(url,params,method){
+
+// }
 export default getApi

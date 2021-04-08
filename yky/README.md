@@ -1,11 +1,13 @@
 ## 院科研项目
 
-### 使用--yarn start/npm run start
+### 使用--
+1、yarn / npm i
+2、yarn start/npm run start
 
 ### 打包 -- yarn build /npm run build
 
 ## 改动内容
-    1、 请求地址--在src目录下直接访问分类包名称--如 @src|@actions|@base 
+    1、 请求地址--在src目录下直接访问分类包名称--如 @src|@actions|@base //src下的一级目录都写好了。
 
 ## 项目介绍
 对于项目稍加详细的介绍、上手更加容易，标出相应知识点。想了解的可以去看看。
