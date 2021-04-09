@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
-import s from "./style.module.scss";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { withRouter } from 'react-router-dom';
+
 // import { createHashHistory } from 'history'; // hash路由
+import s from "./style.module.scss";
 import * as user from "../../actions/user";
-import { Redirect } from 'react-router-dom';
 // const history = createHashHistory();
 let storage = window.localStorage;
-export default class Login extends Component {
+ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,15 +16,18 @@ export default class Login extends Component {
   }
   componentWillMount() {
   }
+  
   onFinish = (values) => {
     user.getUserInfo(values).then((res) => {
       console.log("resres",res)
       if (res && res.data.state == "登录成功") {
         message.success(res.data.state)
-        // this.props.history.push("/Home");
+        this.props.onLoaded(true);
+        this.props.history.push("/Home");
         // return(<Redirect to="/Home"/>)
       } else {
         message.warning(res.data.state);
+        this.props.onLoaded(false);
       }
     });
     if (values.remember) {
@@ -97,3 +101,4 @@ export default class Login extends Component {
     )
   }
 }
+export default withRouter(Login)

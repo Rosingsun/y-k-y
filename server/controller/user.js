@@ -6,8 +6,6 @@ const selectUserInfo = () => {
     });
 }
 const login = (data)=>{
-    console.log("password",data.password);
-    console.log("username",data.username);
     let sql = `SELECT * FROM user WHERE password='${data.password}' and username='${data.username}'`;
     return select(sql);
 }

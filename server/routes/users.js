@@ -11,9 +11,7 @@ router.post('/', function (req, res, next) {
 });
 //登录
 router.post("/login", (req, res, next) => {
-  console.log(req.query);
   login(req.query).then((data) => {
-    console.log("data",data.length)
     if( data.length>0){
       res.json({state:'登录成功',data:data});
     }else{
