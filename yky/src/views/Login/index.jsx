@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 import s from "./style.module.scss";
 import * as user from "../../actions/user";
 let storage = window.localStorage;
@@ -15,6 +16,11 @@ let storage = window.localStorage;
   }
   
   onFinish = (values) => {
+   let data={
+     'username':values.username,
+     'password':values.password,
+     'loadTime':moment().format('YYYY-MM-DD hh:mm:ss')
+   };
     user.Login(values).then((res) => {
       console.log("resres",res)
       if (res && res.data.state == "登录成功") {
