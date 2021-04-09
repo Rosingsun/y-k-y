@@ -2,21 +2,38 @@
 
 //主要色调--冷色调
 $green:#76b852;//绿色
+$CGreen:#518535;//字的绿
+$BGgreen:#023e00;//背景绿
 $white:"#fff";//白色
 $gray:"#efefef";//灰色
 $blue:"#03a9f4";//蓝色
 $purple:"#e9bfff";
-
+//重新定义样式
 :global{
-    .ant-btn-primary{
+    .ant-btn-primary,.ant-btn:hover, .ant-btn:focus,.ant-btn-primary:active{
         background-color: $green;
         border-color: $green;
     }
     a{
         color: $green;
     }
+    a:active,a:hover,.ant-btn:focus{
+        color: $CGreen;
+    }
     .ant-checkbox-checked .ant-checkbox-inner{
         background-color: $green;
         border-color: $green;
+    }
+    //z
+    .ant-layout-sider-trigger,.ant-layout-sider,.ant-layout-header{
+        background-color: $BGgreen;
+    }
+    //未激活的导航栏
+    .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub{
+        background-color: #518535;
+    }
+    //激活的时候
+    .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        background-color: $BGgreen;
     }
 }
