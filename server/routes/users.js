@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 //查询所有信息
 const { selectUserInfo, login } = require("../controller/user")
-router.post('/', function (req, res, next) {
+//用户的所有信息传过去
+router.post('/userList', function (req, res, next) {
   selectUserInfo().then((data) => {
     res.send(data)
   })

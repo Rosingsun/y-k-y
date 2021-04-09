@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { withRouter } from 'react-router-dom';
-
-// import { createHashHistory } from 'history'; // hash路由
 import s from "./style.module.scss";
 import * as user from "../../actions/user";
-// const history = createHashHistory();
 let storage = window.localStorage;
  class Login extends Component {
   constructor(props) {
@@ -18,7 +15,7 @@ let storage = window.localStorage;
   }
   
   onFinish = (values) => {
-    user.getUserInfo(values).then((res) => {
+    user.Login(values).then((res) => {
       console.log("resres",res)
       if (res && res.data.state == "登录成功") {
         message.success(res.data.state)

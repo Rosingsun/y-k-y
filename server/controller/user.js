@@ -1,4 +1,5 @@
 const {select} = require('../db/mysql')
+
 const selectUserInfo = () => {
     let sql = `SELECT * FROM user`;
     return select(sql).then(data=>{
