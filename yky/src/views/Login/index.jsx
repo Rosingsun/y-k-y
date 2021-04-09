@@ -20,7 +20,7 @@ export default class Login extends Component {
       console.log("resres",res)
       if (res && res.data.state == "登录成功") {
         message.success(res.data.state)
-        this.props.history.push("/Home");
+        // this.props.history.push("/Home");
         // return(<Redirect to="/Home"/>)
       } else {
         message.warning(res.data.state);

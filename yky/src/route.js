@@ -21,6 +21,11 @@ const routesConfig = [
     path: "/Data",
     component: page.Data,
     title:"数据页",
+  },
+  {
+    path: "/loginOute",
+    component: page.loginOute,
+    title:"退出登录",
   }
 ];
 export default routesConfig;
