@@ -1,9 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var  message = require('../method/state');
 
 var router = express.Router();
 //查询所有信息
-const { selectUserInfo, login } = require("../controller/user")
+const { selectUserInfo, login ,register,deletuser,} = require("../controller/user")
 //用户的所有信息传过去
 router.post('/userList', function (req, res, next) {
   selectUserInfo().then((data) => {
@@ -14,10 +15,16 @@ router.post('/userList', function (req, res, next) {
 router.post("/login", (req, res, next) => {
   login(req.query).then((data) => {
     if( data.length>0){
-      res.json({state:'登录成功',data:data});
+      res.json(message(1,data,'登录成功'));
     }else{
-      res.json({state:"账号或密码错误！",data:data})
+      res.json(message(2,data,'登陆失败'))
     }
+  })
+})
+router.post("/delete",(req,res,next)=>{
+  deletuser(req.query).then((data)=>{
+    res.json(message(1,data,'删除成功'));
+    console.log(data);
   })
 })
 

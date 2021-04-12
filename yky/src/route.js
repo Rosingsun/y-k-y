@@ -31,11 +31,5 @@ const routesConfig = [
     title:"用户列表",
     acehe:true,
   },
-  {
-    path: "/loginOute",
-    component: page.loginOute,
-    title:"退出登录",
-    acehe:true,
-  }
 ];
 export default routesConfig;

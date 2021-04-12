@@ -21,15 +21,15 @@ let storage = window.localStorage;
      'password':values.password,
      'loadTime':moment().format('YYYY-MM-DD hh:mm:ss')
    };
-    user.Login(values).then((res) => {
+    user.Login(data).then((res) => {
       console.log("resres",res)
-      if (res && res.data.state == "登录成功") {
-        message.success(res.data.state)
+      if (res && res.data.state == 1) {
+        message.success(res.data.message)
         this.props.onLoaded(true);
         this.props.history.push("/Home");
         // return(<Redirect to="/Home"/>)
       } else {
-        message.warning(res.data.state);
+        message.warning(res.data.message);
         this.props.onLoaded(false);
       }
     });

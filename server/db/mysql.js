@@ -24,7 +24,7 @@ const select = (sql) => {
 }
 
 //断开连接
-// con.end();
+// connect.end();
 module.exports = {
     select
 }
