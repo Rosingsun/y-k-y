@@ -14,15 +14,17 @@ class userList extends Component {
                     
                     key:1,
                     type:'select',
-                    name:'用户id',
-                },{
-                    key:2,
-                    type:'select',
-                    name:'用户id'
-                },{
-                    key:3,
-                    type:'select',
-                    name:'用户id'
+                    name:"creator",
+                    lable:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            name:"管理员"
+                        },{
+                            id:2,
+                            name:"测试"
+                        }
+                    ],
                 }
             ]
         }
