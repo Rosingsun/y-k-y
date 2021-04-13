@@ -1,0 +1,27 @@
+@import '@scss/_global.scss';
+.body{
+}
+.searchForm{
+    display: flex;
+    flex-direction: column;
+    .RowLine{
+        float: left;
+        width: 100%;
+    }
+    .btnBox{
+        width: 20%;
+        margin-left: 65%;
+        padding: 10px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+:global{
+    .ant-col{
+        margin: 0px 10px;
+    }
+    .ant-btn-round{
+        padding: 4px 34px;
+    }
+}

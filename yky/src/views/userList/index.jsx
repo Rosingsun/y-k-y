@@ -11,18 +11,101 @@ class userList extends Component {
             data: [],
             searchList:[
                 {
-                    
                     key:1,
                     type:'select',
                     name:"creator",
-                    lable:'创建者',
+                    label:'创建者',
                     data:[
                         {
                             id:1,
-                            name:"管理员"
+                            value:"管理员"
                         },{
                             id:2,
-                            name:"测试"
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
+                        }
+                    ],
+                }, {
+                    key:1,
+                    type:'select',
+                    name:"creator",
+                    label:'创建者',
+                    data:[
+                        {
+                            id:1,
+                            value:"管理员"
+                        },{
+                            id:2,
+                            value:"测试"
                         }
                     ],
                 }
@@ -53,16 +136,17 @@ class userList extends Component {
             <div>
                 <Search searchList={this.state.searchList} add={true} />
                 <Table dataSource={this.state.data}>
-                    <Column title="用户昵称" dataIndex="name" key="name" />
-                    <Column title="用户名" dataIndex="username" key="username" />
-                    <Column title="密码" dataIndex="password" key="password" />
-                    <Column title="年龄" dataIndex="age" key="age" />
-                    <Column title="注册日期" dataIndex="registerTime" key="registerTime" />
-                    <Column title="上一次登录时间" dataIndex="lastTime" key="address" />
-                    <Column title="创建者" dataIndex="creator" key="creator" />
+                    <Column title="用户昵称" dataIndex="name" key="name" align='center'/>
+                    <Column title="用户名" dataIndex="username" key="username" align='center'/>
+                    <Column title="密码" dataIndex="password" key="password" align='center'/>
+                    <Column title="年龄" dataIndex="age" key="age" align='center'/>
+                    <Column title="注册日期" dataIndex="registerTime" key="registerTime" align='center'/>
+                    <Column title="上一次登录时间" dataIndex="lastTime" key="address"align='center'/>
+                    <Column title="创建者" dataIndex="creator" key="creator"align='center' />
                     <Column
                         title="操作"
                         key="action"
+                        align='center'
                         render={(data, record) => (
                             <Space size="middle">
                                 <Button>修改</Button>
