@@ -4,5 +4,6 @@ export default {
     login: HOME + '/users/login',//登录
     //用户
     userList: HOME + '/users/userList',//用户列表
-    deleteUser: HOME + '/users/delete'//测试路径
+    deleteUser: HOME + '/users/delete',//测试路径
+    ConditionSelectUserList :HOME+'/users/ConditionSelectUserList',//按照条件查询
 }

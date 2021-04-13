@@ -9,116 +9,40 @@ class userList extends Component {
         super(props);
         this.state = {
             data: [],
-            searchList:[
+            searchList: [
                 {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }, {
-                    key:1,
-                    type:'select',
-                    name:"creator",
-                    label:'创建者',
-                    data:[
-                        {
-                            id:1,
-                            value:"管理员"
-                        },{
-                            id:2,
-                            value:"测试"
-                        }
-                    ],
-                }
+                    key: 1,
+                    type: 'select',
+                    name: "creator",
+                    label: '创建者',
+                    data: [],//传功去的选项，{id:id,value:value}
+                },
             ]
         }
     }
     componentDidMount() {
         this.selectUserList();
     }
+    search=(e)=>{
+        console.log("3e",e);
+        user.selectWithId({id:e.creator}).then((res)=>{
+            console.log(res)
+        })
+    }
     selectUserList = () => {
         user.userList().then((res) => {
-            console.log("ressss", res)
-            this.setState({ data: res.data })
+            let list = [...this.state.searchList]
+            list.map((item, index) => {
+                if (item.name == 'creator') {
+                    res.data.map((item2, index2) => {
+                        item.data.push({
+                            id: item2.id,
+                            value: item2.name
+                        })
+                    })
+                }
+            })
+            this.setState({ data: res.data, searchList: list })
         })
     }
     //删除的函数
@@ -134,15 +58,15 @@ class userList extends Component {
     render() {
         return (
             <div>
-                <Search searchList={this.state.searchList} add={true} />
+                <Search searchList={this.state.searchList} add={false} search={this.search}/>
                 <Table dataSource={this.state.data}>
-                    <Column title="用户昵称" dataIndex="name" key="name" align='center'/>
-                    <Column title="用户名" dataIndex="username" key="username" align='center'/>
-                    <Column title="密码" dataIndex="password" key="password" align='center'/>
-                    <Column title="年龄" dataIndex="age" key="age" align='center'/>
-                    <Column title="注册日期" dataIndex="registerTime" key="registerTime" align='center'/>
-                    <Column title="上一次登录时间" dataIndex="lastTime" key="address"align='center'/>
-                    <Column title="创建者" dataIndex="creator" key="creator"align='center' />
+                    <Column title="用户昵称" dataIndex="name" key="name" align='center' />
+                    <Column title="用户名" dataIndex="username" key="username" align='center' />
+                    <Column title="密码" dataIndex="password" key="password" align='center' />
+                    <Column title="年龄" dataIndex="age" key="age" align='center' />
+                    <Column title="注册日期" dataIndex="registerTime" key="registerTime" align='center' />
+                    <Column title="上一次登录时间" dataIndex="lastTime" key="address" align='center' />
+                    <Column title="创建者" dataIndex="creator" key="creator" align='center' />
                     <Column
                         title="操作"
                         key="action"
