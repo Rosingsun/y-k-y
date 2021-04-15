@@ -1,5 +1,5 @@
 const {select} = require('../db/mysql')
-
+//获取用户列表
 const selectUserInfo = () => {
     // let sql = `SELECT * FROM user`;
     let sql2=`SELECT u1.id,u1.name,u1.username,u1.password,u1.age,u1.sex,u2.regiserTime,u2.userId,u2.creator
@@ -10,6 +10,7 @@ const selectUserInfo = () => {
        return data || {};
     });
 }
+//登录
 const login = (data)=>{
 let sql = `
     SELECT * from user
@@ -21,19 +22,27 @@ let update  = `
     select(update);
     return select(sql);
 }
-
+//删除
+const  deletuser =(data)=>{
+    let sql = `DELETE FROM user WHERE id = ${data.id}`;
+    return select(sql);
+}
+//注册
 const register =(data) =>{
     let sql = `INSERT INTO user (name,username,password,age,registerTime,creator) VALUES(
     ${data.name},${data.username},${data.password},${data.age},${data.registerTime},${data.creator})`;
     select(sql);
 }
-const  deletuser =(data)=>{
-    let sql = `DELETE FROM user WHERE id = ${data.id}`;
+// 按照条件查询
+const ConditionSelectUserList=(data)=>{
+    let sql = `SELECT * FROM user 
+                WHERE creator = ${data.id}`;
     return select(sql);
 }
 module.exports={
     selectUserInfo,//获取用户列表
     login,//登录
-    register,//注册新用户
     deletuser,//删除用户
+    register,//注册新用户
+    ConditionSelectUserList,//按照条件查询
 }

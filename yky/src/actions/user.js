@@ -10,3 +10,6 @@ export const userList = (params, callback) => {
 export const deleteUser=(params,callback)=>{
     return getApi(ApiConstants.deleteUser,params,"POST");
 }
+export const selectWithId = (params,callback)=>{
+    return getApi(ApiConstants.ConditionSelectUserList,params,"POST");
+}
