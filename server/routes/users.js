@@ -25,13 +25,12 @@ router.post("/login", (req, res, next) => {
 router.post("/delete",(req,res,next)=>{
   deletuser(req.query).then((data)=>{
     res.json(message(1,data,'删除成功'));
-    console.log(data);
   })
 })
 //按照条件查询
 router.post("/ConditionSelectUserList",(req,res,next)=>{
   ConditionSelectUserList(req.query).then((data)=>{
-    console.log(data);
+    res.json(message(1,data,'查询成功'));
   })
 })
 module.exports = router;

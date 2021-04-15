@@ -2,6 +2,7 @@
  * @param {Array} searchList 搜索的目录
  * @param {Boolean} add 是否需要添加的按钮
  * @param {Funtion} search finish 的回调函数
+ * @param {Funtion} clearOut 清除函数
  */
 import React, { Component } from 'react';
 import { Form, Row, Col, Input, Button, Select } from 'antd';
@@ -13,9 +14,18 @@ class Search extends Component {
         this.state = {
 
         }
+        this.form=React.createRef
     }
+    //完成函数
     onFinish = (e) => {
         this.props.search(e);
+    }
+    //清楚函数
+    clear(){
+        this.props.clearOut();
+        // this.form.setFieldsValue({
+        //     name:'',
+        // })
     }
     render() {
         return (
@@ -45,7 +55,7 @@ class Search extends Component {
                                                 ? <Select placeholder="请选择" >
                                                     {item.data.map((item2, index2) => (<Option value={item2.id}>{item2.value}</Option>))}
                                                 </Select>
-                                                : itemm.type == 'input' ? <Input placeholder="placeholder" />
+                                                : item.type == 'input' ? <Input placeholder="placeholder" />
                                                     : null
                                             }
                                         </Form.Item>
@@ -55,8 +65,11 @@ class Search extends Component {
                         }
                     </Row>
                     <div className={s.btnBox}>
-                        {this.props.add == true ? <Button type="primary" htmlType="submit" shape="round">新增</Button> : null}
+                        {this.props.add == true ? <Button className={s.add} shape="round">新增</Button> : null}
                         <Button type="primary" htmlType="submit" shape="round">查询</Button>
+                        <Button className={s.clearOut}  shape="round" onClick={()=>{
+                            this.clear();
+                        }}>清空</Button>
                     </div>
                 </Form>
 

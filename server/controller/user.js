@@ -31,7 +31,6 @@ const register =(data) =>{
 }
 // 按照条件查询
 const ConditionSelectUserList=(data)=>{
-    console.log('datadatadata',data)
     let sql = `SELECT * FROM user 
                 WHERE creator = ${data.id}`;
     return select(sql);
