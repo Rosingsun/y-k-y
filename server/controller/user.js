@@ -2,10 +2,10 @@ const {select} = require('../db/mysql')
 //获取用户列表
 const selectUserInfo = () => {
     let sql = `SELECT * FROM user`;
-    // let sql=`SELECT u1.id,u1.name,u1.username,u1.password,u1.age,u1.sex,u2.regiserTime,u2.userId,u2.creator
+    // let sql2=`SELECT u1.id,u1.name,u1.username,u1.password,u1.age,u1.sex,u2.regiserTime,u2.userId,u2.creator
     // FROM user as u1
     // INNER JOIN createruser as u2
-    // where u1.id=u2.creator`;
+    // where u1.id=u2.creator`
     return select(sql).then(data=>{
        return data || {};
     });
@@ -36,7 +36,7 @@ const register =(data) =>{
 // 按照条件查询
 const ConditionSelectUserList=(data)=>{
     let sql = `SELECT * FROM user 
-                WHERE creator = ${data.id}`;
+                WHERE creator= ${data.id}`;
     return select(sql);
 }
 module.exports={

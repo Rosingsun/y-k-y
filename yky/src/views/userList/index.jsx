@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Tag, Space, Button, message } from 'antd';
 import * as s from "./style.module.scss";
-import { Search } from '../../components/index';
+import { Search,PopUp } from '../../components/index';
 import * as user from "@actions/user";
 const { Column, ColumnGroup } = Table;
 class userList extends Component {
@@ -9,6 +9,7 @@ class userList extends Component {
     super(props);
     this.state = {
       data: [],
+      visible:false,
       searchList: [
         {
           key: 1,
@@ -57,17 +58,29 @@ class userList extends Component {
   //删除的函数
   deleteUser(id) {
     user.deleteUser({ id: id }).then((res) => {
-      console.log('resresres', res)
       if (res.data.state == 1) {
         message.success(res.data.message);
         this.selectUserList();
       }
     })
   }
+  addBtn=()=>{
+    console.log("弹出添加的框");
+    this.setState({visible:true});
+  }
+  ok=()=>{
+    console.log('点击了确定');
+    this.setState({visible:false});
+  }
+  cancel=()=>{
+    this.setState({visible:false});
+  }
   render() {
     return (
       <div>
-        <Search searchList={this.state.searchList} add={true} search={this.search} clearOut={this.clearOut} />
+        <PopUp ok={this.ok} cancel={this.cancel} title="修改框" visible={this.state.visible}>
+        </PopUp>
+        <Search searchList={this.state.searchList} add={true} addBtn={this.addBtn} search={this.search} clearOut={this.clearOut} />
         <Table dataSource={this.state.data}>
         <Column title="用户ID" dataIndex="id" key="id" align='center' />
 

@@ -15,7 +15,6 @@ class Search extends Component {
         this.state = {
 
         }
-        this.form=React.createRef
     }
     //完成函数
     onFinish = (e) => {
