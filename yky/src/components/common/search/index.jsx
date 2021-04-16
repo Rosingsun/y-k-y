@@ -3,7 +3,7 @@
  * @param {Boolean} add 是否需要添加的按钮
  * @param {Funtion} search finish 的回调函数
  * @param {Funtion} clearOut 清除函数
- * @params
+ * @params {Funtion} addBtn 添加按钮
  */
 import React, { Component } from 'react';
 import { Form, Row, Col, Input, Button, Select } from 'antd';
@@ -29,8 +29,8 @@ class Search extends Component {
         // })
     }
     //添加函数
-    add(){
-        this.props.add();
+    addBtn(){
+        this.props.addBtn();
     }
     render() {
         return (
@@ -70,7 +70,7 @@ class Search extends Component {
                         }
                     </Row>
                     <div className={s.btnBox}>
-                        {this.props.add == true ? <Button className={s.add} onClick={()=>{this.add}} shape="round">新增</Button> : null}
+                        {this.props.add == true ? <Button className={s.add} onClick={()=>{this.addBtn()}} shape="round">新增</Button> : null}
                         <Button type="primary" htmlType="submit" shape="round">查询</Button>
                         <Button className={s.clearOut}  shape="round" onClick={()=>{
                             this.clear();

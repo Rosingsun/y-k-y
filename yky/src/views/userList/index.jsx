@@ -39,14 +39,15 @@ class userList extends Component {
   //查询所有的信息
   selectUserList = () => {
     user.userList().then((res) => {
+      console.log("res",res)
       let list = [...this.state.searchList]
       list.map((item, index) => {
         if (item.name == 'creator') {
           res.data.map((item2, index2) => {
-            item.data.push({
+            item.data[index2]={
               id: item2.id,
               value: item2.name
-            })
+            }
           })
         }
       })
@@ -68,6 +69,8 @@ class userList extends Component {
       <div>
         <Search searchList={this.state.searchList} add={true} search={this.search} clearOut={this.clearOut} />
         <Table dataSource={this.state.data}>
+        <Column title="用户ID" dataIndex="id" key="id" align='center' />
+
           <Column title="用户昵称" dataIndex="name" key="name" align='center' />
           <Column title="用户名" dataIndex="username" key="username" align='center' />
           <Column title="密码" dataIndex="password" key="password" align='center' />
