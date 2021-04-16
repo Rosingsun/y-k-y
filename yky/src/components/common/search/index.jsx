@@ -15,7 +15,6 @@ class Search extends Component {
         this.state = {
 
         }
-        this.form=React.createRef
     }
     //完成函数
     onFinish = (e) => {
@@ -29,8 +28,8 @@ class Search extends Component {
         // })
     }
     //添加函数
-    add(){
-        this.props.add();
+    addBtn(){
+        this.props.addBtn();
     }
     render() {
         return (
@@ -70,7 +69,7 @@ class Search extends Component {
                         }
                     </Row>
                     <div className={s.btnBox}>
-                        {this.props.add == true ? <Button className={s.add} onClick={()=>{this.add}} shape="round">新增</Button> : null}
+                        {this.props.add == true ? <Button className={s.add} onClick={()=>{this.addBtn()}} shape="round">新增</Button> : null}
                         <Button type="primary" htmlType="submit" shape="round">查询</Button>
                         <Button className={s.clearOut}  shape="round" onClick={()=>{
                             this.clear();
