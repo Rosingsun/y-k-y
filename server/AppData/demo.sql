@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 15/04/2021 18:32:01
+ Date: 19/04/2021 08:52:09
 */
 
 SET NAMES utf8mb4;
@@ -29,12 +29,12 @@ CREATE TABLE `createruser`  (
   `userId` int(11) NULL DEFAULT NULL COMMENT '被创建者的id',
   `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '被创建者的名字',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of createruser
 -- ----------------------------
-INSERT INTO `createruser` VALUES (1, 1, '管理员·', '2021-04-09 17:35:41', 2, '张三');
+INSERT INTO `createruser` VALUES (1, 1, '管理员', '2021-04-09 17:35:41', 2, '张三');
 INSERT INTO `createruser` VALUES (2, 2, '管理员', '2021-04-09 17:35:41', 3, 'Rosingsun');
 
 -- ----------------------------
@@ -47,7 +47,7 @@ CREATE TABLE `user`  (
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '密码',
   `lastTime` datetime(0) NULL DEFAULT NULL COMMENT '上次登陆时间',
-  `age` int(10) UNSIGNED ZEROFILL NULL DEFAULT NULL,
+  `age` int(10) UNSIGNED NULL DEFAULT NULL,
   `sex` int(11) NOT NULL DEFAULT 1 COMMENT '1是男，0是女',
   `creator` int(11) NULL DEFAULT NULL COMMENT '创建者的id',
   PRIMARY KEY (`id`) USING BTREE
@@ -56,9 +56,9 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '管理员', 'admin', 'admin', '2021-04-14 09:30:43', NULL, 1, 1);
-INSERT INTO `user` VALUES (2, '张三', 'zs', '123456', '2020-02-01 12:23:02', 0000000012, 1, 1);
-INSERT INTO `user` VALUES (3, 'Rosingsun', '123456', '123456', '2021-04-12 10:23:10', 0000000001, 1, 2);
-INSERT INTO `user` VALUES (4, NULL, '2', '2', '2021-04-12 10:23:16', NULL, 1, NULL);
+INSERT INTO `user` VALUES (1, '管理员', 'admin', 'admin', '2021-04-15 07:32:15', 10, 1, 4);
+INSERT INTO `user` VALUES (2, '张三', 'zs', '123456', '2020-02-01 12:23:02', 12, 1, 1);
+INSERT INTO `user` VALUES (3, 'Rosingsun', '123456', '123456', '2021-04-12 10:23:10', 1, 1, 2);
+INSERT INTO `user` VALUES (4, '徐琳杰', '2', '2', '2021-04-12 10:23:16', 1, 1, 3);
 
 SET FOREIGN_KEY_CHECKS = 1;
