@@ -88,9 +88,9 @@ class userList extends Component {
           <Column title="用户名" dataIndex="username" key="username" align='center' />
           <Column title="密码" dataIndex="password" key="password" align='center' />
           <Column title="年龄" dataIndex="age" key="age" align='center' />
-          <Column title="注册日期" dataIndex="registerTime" key="registerTime" align='center' />
+          <Column title="注册日期" dataIndex="regiserTime" key="regiserTime" align='center' />
           <Column title="上一次登录时间" dataIndex="lastTime" key="address" align='center' />
-          <Column title="创建者" dataIndex="creator" key="creator" align='center' />
+          <Column title="创建者" dataIndex="creatorName" key="creatorName" align='center' />
           <Column
             title="操作"
             key="action"
