@@ -35,8 +35,10 @@ const register =(data) =>{
 }
 // 按照条件查询
 const ConditionSelectUserList=(data)=>{
-    let sql = `SELECT * FROM user 
-                WHERE creator= ${data.id}`;
+    let sql = `SELECT u1.id,u2.name,u1.username,u1.password,u1.age,u1.sex,u1.lastTime,u2.regiserTime,u2.userId,u2.creator,u2.creatorName
+                FROM user as u1
+                INNER JOIN createruser as u2
+                WHERE u1.id= ${data.id} and u2.creator=${data.id}`;
     return select(sql);
 }
 module.exports={
