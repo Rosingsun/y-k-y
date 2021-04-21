@@ -26,7 +26,7 @@ let storage = window.localStorage;
       if (res && res.data.state == 1) {
         message.success(res.data.message)
         this.props.onLoaded(true);
-        storage.id=res.data.data[0].id
+        storage.id=res.data.data[1][0].id
         this.props.history.push("/Home");
       } else {
         message.warning(res.data.message);
