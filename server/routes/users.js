@@ -1,10 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var  message = require('../method/state');
-
 var router = express.Router();
-//查询所有信息
-const { selectUserInfo, login ,register,deletuser,ConditionSelectUserList} = require("../controller/user")
+const { selectUserInfo, login ,register,deletuser,ConditionSelectUserList} = require("../controller/user");
+
 //用户的所有信息传过去
 router.post('/userList', function (req, res, next) {
   selectUserInfo().then((data) => {
@@ -21,6 +20,14 @@ router.post("/login", (req, res, next) => {
     }
   })
 })
+
+//注册新用户
+router.post('/regist',(req,res,next)=>{
+  register(req.query).then((data)=>{
+    res.json(message(1,data,'注册成功'))
+  })
+})
+
 //删除单条用户信息
 router.post("/delete",(req,res,next)=>{
   deletuser(req.query).then((data)=>{

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Table, Tag, Space, Button, message } from 'antd';
-import * as s from "./style.module.scss";
-import { Search,PopUp } from '../../components/index';
+import * as api from'@actions/user'
+import { Search, PopUp } from '@components/index';
+import moment from'moment';
 import * as user from "@actions/user";
+let storage = window.localStorage;
 const { Column, ColumnGroup } = Table;
 class userList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      visible:false,
+      visible: false,
       searchList: [
         {
           key: 1,
@@ -18,6 +20,35 @@ class userList extends Component {
           label: '创建者',
           data: [],//传功去的选项，{id:id,value:value}
         },
+      ],
+      addUserContain: [
+        {
+          type: 'input',
+          name: 'username',
+          label: '用户名',
+          rules: [
+            {
+              required: true,//查询可以为空
+              message: '用户名不能为空',
+            }]
+        }, {
+          type: 'input',
+          name: 'password',
+          label: '密码',
+        }, {
+          type: 'input',
+          name: 'name',
+          label: '用户昵称',
+        }, {
+          type: 'select',
+          name: 'sex',
+          label: '性别',
+          data: [{ id: 1, value: '男' }, { id: 2, value: '女', }]
+        }, {
+          type: 'input',
+          name: 'age',
+          label: '年龄',
+        }
       ]
     }
   }
@@ -31,7 +62,7 @@ class userList extends Component {
     })
   }
   //清除函数
-  clearOut=()=>{
+  clearOut = () => {
     //先查询新数据
     this.selectUserList();
     //再清除搜索框
@@ -40,12 +71,12 @@ class userList extends Component {
   //查询所有的信息
   selectUserList = () => {
     user.userList().then((res) => {
-      console.log("res",res)
+      console.log("res", res)
       let list = [...this.state.searchList]
       list.map((item, index) => {
         if (item.name == 'creator') {
           res.data.map((item2, index2) => {
-            item.data[index2]={
+            item.data[index2] = {
               id: item2.id,
               value: item2.name
             }
@@ -64,25 +95,33 @@ class userList extends Component {
       }
     })
   }
-  addBtn=()=>{
+  addBtn = () => {
     console.log("弹出添加的框");
-    this.setState({visible:true});
+    this.setState({ visible: true });
   }
-  ok=()=>{
-    console.log('点击了确定');
-    this.setState({visible:false});
+  ok = (data) => {
+    console.log("获取到了数据", data)
+    let update={...data};
+    update.creator=storage.id;
+    update.regiserTime=moment().format('YYYY-MM-DD hh:mm:ss');   
+    api.regist(update).then((res)=>{
+      console.log('res',res);
+    }).catch(err=>{
+      console.log('err',err);
+    })
+    this.setState({ visible: false });
   }
-  cancel=()=>{
-    this.setState({visible:false});
+  cancel = () => {
+    this.setState({ visible: false });
   }
   render() {
     return (
       <div>
-        <PopUp ok={this.ok} cancel={this.cancel} title="修改框" visible={this.state.visible}>
+        <PopUp ok={this.ok} cancel={this.cancel} title="添加新用户" visible={this.state.visible} list={this.state.addUserContain}>
         </PopUp>
         <Search searchList={this.state.searchList} add={true} addBtn={this.addBtn} search={this.search} clearOut={this.clearOut} />
         <Table dataSource={this.state.data}>
-        <Column title="用户ID" dataIndex="id" key="id" align='center' />
+          <Column title="用户ID" dataIndex="id" key="id" align='center' />
 
           <Column title="用户昵称" dataIndex="name" key="name" align='center' />
           <Column title="用户名" dataIndex="username" key="username" align='center' />

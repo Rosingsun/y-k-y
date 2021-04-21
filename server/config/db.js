@@ -9,7 +9,8 @@ if (env === 'development') {
         password: "123456",
         port: "3306",
         database: "demo",
-        dateStrings: true
+        dateStrings: true,
+        multipleStatements: true // 支持执行多条 sql 语句
     }
 }
 
@@ -20,7 +21,8 @@ if (env === 'production') {
         password: "123456",
         port: "3306",
         database: "demo",
-        dateStrings: true
+        dateStrings: true,
+        multipleStatements: true // 支持执行多条 sql 语句
     }
 }
 module.exports = { MYSQL_CONF }

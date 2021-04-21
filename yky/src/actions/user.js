@@ -13,3 +13,6 @@ export const deleteUser=(params,callback)=>{
 export const selectWithId = (params,callback)=>{
     return getApi(ApiConstants.ConditionSelectUserList,params,"POST");
 }
+export const regist = (params)=>{
+    return getApi(ApiConstants.regist,params,"POST");
+}
