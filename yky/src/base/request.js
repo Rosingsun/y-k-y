@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { message } from 'antd';
+import Qs from 'qs'
 //开发环境与产品环境的url
 // const devBaseURL = 'localhost:9981';
 // const proBaseURL = 'localhost:9981';
@@ -38,6 +39,7 @@ const getApi = (url, params, method) => {
   const data =  axios({
         url: url,
         params: params,
+        // params: Qs.stringify(params),
         method: method,
         headers: { 
             'Content-Type': 'application/x-www-form-urlencoded',

@@ -75,7 +75,7 @@ class userList extends Component {
       let list = [...this.state.searchList]
       list.map((item, index) => {
         if (item.name == 'creator') {
-          res.data.map((item2, index2) => {
+          res.data&&res.data.map((item2, index2) => {
             item.data[index2] = {
               id: item2.id,
               value: item2.name

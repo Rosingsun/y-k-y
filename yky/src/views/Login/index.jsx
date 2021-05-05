@@ -16,30 +16,31 @@ let storage = window.localStorage;
   }
   
   onFinish = (values) => {
-   let data={
-     'username':values.username,
-     'password':values.password,
-     'loadTime':moment().format('YYYY-MM-DD hh:mm:ss')
-   };
-    user.Login(data).then((res) => {
-      console.log("resres",res)
-      if (res && res.data.state == 1) {
-        message.success(res.data.message)
-        this.props.onLoaded(true);
-        storage.id=res.data.data[1][0].id
-        this.props.history.push("/Home");
-      } else {
-        message.warning(res.data.message);
-        this.props.onLoaded(false);
-      }
-    });
-    if (values.remember) {
-      storage.username = values.username;
-      storage.password = values.password;
-    } else {
-      storage.removeItem("username");
-      storage.removeItem("password");
-    }
+    this.props.onLoaded(true);
+  //  let data={
+  //    'username':values.username,
+  //    'password':values.password,
+  //    'loadTime':moment().format('YYYY-MM-DD hh:mm:ss')
+  //  };
+  //   user.Login(data).then((res) => {
+  //     console.log("resres",res)
+  //     if (res && res.data.state == 1) {
+  //       message.success(res.data.message)
+  //       this.props.onLoaded(true);
+  //       storage.id=res.data.data[1][0].id
+  //       this.props.history.push("/Home");
+  //     } else {
+  //       message.warning(res.data.message);
+  //       this.props.onLoaded(false);
+  //     }
+  //   });
+  //   if (values.remember) {
+  //     storage.username = values.username;
+  //     storage.password = values.password;
+  //   } else {
+  //     storage.removeItem("username");
+  //     storage.removeItem("password");
+  //   }
   };
   render() {
     return (

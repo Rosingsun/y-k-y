@@ -43,7 +43,9 @@ class App extends Component {
                         return (
                           <Menu.Item key={item.path} icon={<PieChartOutlined />} onClick={(e) => {
                             this.setState({ panalName: item.title });
-                          }}>
+                          }}
+                          key={index}
+                          >
                             <Link to={item.path}>
                               {item.title}
                             </Link>

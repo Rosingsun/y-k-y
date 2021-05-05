@@ -30,6 +30,11 @@ const routesConfig = [
     component: page.userList,
     title:"用户列表",
     acehe:true,
+  },{
+    path: "/translate",
+    component: page.Translate,
+    title:"翻译",
+    acehe:true,
   },
 ];
 export default routesConfig;
